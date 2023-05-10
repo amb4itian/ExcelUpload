@@ -6,5 +6,10 @@
 </head>
 <body>
 Hello buddy -- <span data-th-text="${text}"></span>
+<form action="/processFile" method="POST" enctype="multipart/form-data">
+
+    <input type="file" id="image_uploads" name="file" accept=".xlsx" multiple="multiple">
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

@@ -1,8 +1,12 @@
 package amb.poc.excelwork.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.awt.*;
 
 @Controller
 public class Home {
@@ -24,5 +28,7 @@ public class Home {
         model.addAttribute("text", "This is Ambi");
         return "home";
     }
+
+    
 }
 

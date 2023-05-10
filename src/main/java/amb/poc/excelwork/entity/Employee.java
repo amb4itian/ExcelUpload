@@ -6,17 +6,22 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Date;
 
+/**
+ * Custom Id generator
+ */
+
 @Entity
 @Table(name = "employee")
 @Data
 public class Employee {
 
     @Id
-    @Column(name = "employeeId")
-    @GenericGenerator(name = "id-gen",
+    @Column(name = "employee_id", length = 100)
+    @GenericGenerator(name = "employee_id",
             parameters = @org.hibernate.annotations.Parameter(name = "prefix", value = "EMP"),
             strategy = "amb.poc.excelwork.CustomIdGenerator")
-    private String employee_id;
+    @GeneratedValue(generator = "employee_id")
+    private String employeeId;
 
     @Column(name = "first_name")
     private String firstName;

@@ -13,7 +13,7 @@ import java.lang.annotation.Annotation;
 import java.util.Properties;
 import java.util.stream.Stream;
 
-public abstract class CustomIdGenerator implements IdentifierGenerator, Configurable {
+public class CustomIdGenerator implements IdentifierGenerator {
 
     private String prefix;
 
@@ -34,27 +34,8 @@ public abstract class CustomIdGenerator implements IdentifierGenerator, Configur
                 .mapToLong(Long::parseLong)
                 .max()
                 .orElse(0L);
-        return prefix + "-" + max + 1;
+        return prefix + "-" + (max + 1);
     }
 
 
-    @Override
-    public Autowire autowire() {
-        return null;
-    }
-
-    @Override
-    public boolean dependencyCheck() {
-        return false;
-    }
-
-    @Override
-    public boolean preConstruction() {
-        return false;
-    }
-
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
-    }
 }
